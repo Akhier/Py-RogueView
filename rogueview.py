@@ -14,10 +14,10 @@ if __name__ == '__main__':
     while not test.is_window_closed:
         libtcodpy.console_clear(test.root_panel.body)
         test.flush
-        if test2.x < 9:
+        if test2.x < 15:
             test2.x += 1
             test2.y += 1
         else:
-            test2.x = 1
-            test2.y = 1
+            test2.x = -5
+            test2.y = -5
         libtcodpy.console_wait_for_keypress(True)

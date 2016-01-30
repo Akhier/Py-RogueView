@@ -8,16 +8,23 @@ class Console:
                  title, font='terminal12x12_gs_ro.png',
                  fontflags=(libtcodpy.FONT_TYPE_GREYSCALE |
                             libtcodpy.FONT_LAYOUT_ASCII_INROW),
-                 fullscreen=False):
+                 fullscreen=False, fps=60):
         self.screenwidth = screenwidth
         self.screenheight = screenheight
-        libtcodpy.console_set_custom_font(font, fontflags)
+        self.set_font(font, fontflags)
+        self.set_fps(fps)
         libtcodpy.console_init_root(screenwidth, screenheight,
                                     title, fullscreen)
         self.root_panel = Panel(0, 0, screenwidth, screenheight)
 
     def set_title(self, title):
         libtcodpy.console_set_window_title(title)
+
+    def set_fps(self, fps):
+        libtcodpy.sys_set_fps(fps)
+
+    def set_font(self, font, fontflags):
+        libtcodpy.console_set_custom_font(font, fontflags)
 
     @property
     def flush(self):
