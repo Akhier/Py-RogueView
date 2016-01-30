@@ -5,8 +5,17 @@ from Panel import Panel
 
 if __name__ == '__main__':
     test = Console(20, 20, 'test')
-    testpanel = Panel(5, 5, 10, 10, border=True)
-    test.root_panel.add_child(testpanel)
+    test1 = Panel(5, 5, 10, 10, border=True)
+    test2 = Panel(7, 7, 10, 10, border=True)
+    test.root_panel.add_child(test1)
+    test.root_panel.add_child(test2)
     while not test.is_window_closed:
+        libtcodpy.console_clear(test.root_panel.body)
         test.flush
+        if test2.x < 9:
+            test2.x += 1
+            test2.y += 1
+        else:
+            test2.x = 1
+            test2.y = 1
         libtcodpy.console_wait_for_keypress(True)
