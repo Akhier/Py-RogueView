@@ -6,7 +6,9 @@ from Panel import Panel
 if __name__ == '__main__':
     test = Console(20, 20, 'test')
     test1 = Panel(5, 5, 10, 10, border=True)
+    test1.write(1, 1, 'test1')
     test2 = Panel(7, 7, 10, 10, border=True, foreground=libtcodpy.yellow)
+    test2.write(1, 1, 'test2')
     test.root_panel.add_child(test1)
     test.root_panel.add_child(test2)
     while not test.is_window_closed:
