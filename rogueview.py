@@ -13,6 +13,7 @@ if __name__ == '__main__':
     test.root_panel.add_child(test2)
     while not test.is_window_closed:
         libtcodpy.console_clear(test.root_panel.body)
+        test.blit
         test.flush
         if test2.x < 15:
             test2.x += 1

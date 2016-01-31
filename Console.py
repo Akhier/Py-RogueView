@@ -28,10 +28,13 @@ class Console:
 
     @property
     def flush(self):
+        libtcodpy.console_flush()
+
+    @property
+    def blit(self):
         self.root_panel.blit
         libtcodpy.console_blit(self.root_panel.body, 0, 0, self.screenwidth,
                                self.screenheight, 0, 0, 0)
-        libtcodpy.console_flush()
 
     @property
     def is_window_closed(self):

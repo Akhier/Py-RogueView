@@ -22,7 +22,7 @@ class Panel:
 
     @property
     def clear(self):
-        self._panel.clear()
+        libtcodpy.console_clear(self._panel)
         if self.border:
             libtcodpy.console_print_frame(self._panel, 0, 0,
                                           self.panelwidth, self.panelheight)
@@ -46,9 +46,10 @@ class Panel:
     def set_default_background(self, back):
         libtcodpy.console_set_default_background(self._panel, back)
 
-    def write(self, x, y, txt, flag=libtcodpy.BKGND_NONE):
+    def write(self, x, y, txt, flag=libtcodpy.BKGND_NONE,
+              align=libtcodpy.LEFT):
         libtcodpy.console_print_ex(self._panel, x, y, flag,
-                                   libtcodpy.LEFT, txt)
+                                   align, txt)
 
     def write_ex(self, x, y, txt, fore, back):
         self.set_default_foreground(fore)
