@@ -10,7 +10,6 @@ class Panel:
         self.y = y
         self.panelwidth = panelwidth
         self.panelheight = panelheight
-        self.children = []
         self._panel = libtcodpy.console_new(self.panelwidth,
                                             self.panelheight)
         libtcodpy.console_set_default_foreground(self._panel, foreground)
@@ -69,6 +68,3 @@ class Panel:
 
     def rect(self, x, y, w, h, clear, flag=libtcodpy.BKGND_DEFAULT):
         libtcodpy.console_rect(self._panel, x, y, w, h, clear, flag)
-
-    def add_child(self, panel):
-        self.children.append(panel)
