@@ -27,14 +27,18 @@ class Panel:
             libtcodpy.console_print_frame(self._panel, 0, 0,
                                           self.panelwidth, self.panelheight)
 
-    @property
-    def blit(self):
-        if self.children:
-            for child in self.children:
-                child.blit
-                libtcodpy.console_blit(child.body, 0, 0, child.panelwidth,
-                                       child.panelheight, self._panel,
-                                       child.x, child.y)
+    def blit(self, x=0, y=0, w=False, h=False, dst=0,
+             xdst=False, ydst=False, ffade=1.0, bfade=1.0):
+        if not xdst:
+            xdst = self.x
+        if not ydst:
+            ydst = self.y
+        if not w:
+            w = self.panelwidth
+        if not h:
+            h = self.panelheight
+        libtcodpy.console_blit(self._panel, x, y, w, h, dst, xdst,
+                               ydst, ffade, bfade)
 
     @property
     def body(self):
@@ -62,6 +66,9 @@ class Panel:
     def write_wrap_ex(self, x, y, w, h, txt, align, flag=libtcodpy.BKGND_NONE):
         libtcodpy.console_print_rect_ex(self._panel, x, y, w, h,
                                         flag, align, txt)
+
+    def rect(self, x, y, w, h, clear, flag=libtcodpy.BKGND_DEFAULT):
+        libtcodpy.console_rect(self._panel, x, y, w, h, clear, flag)
 
     def add_child(self, panel):
         self.children.append(panel)

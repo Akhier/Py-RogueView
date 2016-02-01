@@ -9,11 +9,10 @@ if __name__ == '__main__':
     test1.write(1, 1, 'test1')
     test2 = Panel(7, 7, 10, 10, border=True, foreground=libtcodpy.yellow)
     test2.write(1, 1, 'test2')
-    test.root_panel.add_child(test1)
-    test.root_panel.add_child(test2)
     while not test.is_window_closed:
-        libtcodpy.console_clear(test.root_panel.body)
-        test.blit
+        test.clear
+        test1.blit()
+        test2.blit()
         test.flush
         if test2.x < 15:
             test2.x += 1
