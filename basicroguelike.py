@@ -1089,6 +1089,8 @@ def play_game():
 def main_menu():
     # while not libtcod.console_is_window_closed():
     while not root.is_window_closed:
+        root.clear
+        console.set_default_background(libtcod.black)
 
         # libtcod.console_set_default_foreground(0, libtcod.light_yellow)
         # libtcod.console_print_ex(0, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 - 4,
