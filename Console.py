@@ -77,4 +77,4 @@ class Console:
         libtcodpy.console_print_frame(0, x, y, w, h, clear, flag)
 
     def color_rect(self, x, y, w, h, clear, flag=libtcodpy.BKGND_DEFAULT):
-        libtcodpy.console_print_frame(0, x, y, w, h, clear, flag)
+        libtcodpy.console_rect(0, x, y, w, h, clear, flag)
