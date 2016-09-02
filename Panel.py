@@ -77,6 +77,9 @@ class Panel:
     def rect(self, x, y, w, h, clear, flag=libtcodpy.BKGND_DEFAULT):
         libtcodpy.console_print_frame(self._panel, x, y, w, h, clear, flag)
 
+    def color_rect(self, x, y, w, h, clear, flag=libtcodpy.BKGND_DEFAULT):
+        libtcodpy.console_print_frame(0, x, y, w, h, clear, flag)
+
     def inside(self, X, Y):
         if X >= self.x and X <= self.x2 and Y >= self.y and Y <= self.y2:
             return True
